@@ -18,16 +18,33 @@ Route::post('/register', [AuthController::class, 'signUp'])->name('registration'
 Route::get('/login', [AuthController::class, 'showFormlogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
-// creation de vue dashboard et 
+
+//route pour deconnexion
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+////////////////// creation de vue dashboard et///////// 
 //middleware auth pour dire que les personne nom autoriser ne pouront pas vaoir acces a cette page 
 Route::get('/dashboard', function(){
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
 
 
-Route::get('/produit.dashboard', function(){
+
+Route::get('/produit/dashboard', function () {
     return view('produit.dashboard');
-})->name('produit.dashboard');
+})->name('produit.dashboard')->middleware('auth');
+
+Route::get('/parametres', function(){
+    return view('parametres');
+})->name('parametres')->middleware('auth');
 
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+//////////////////création de vue client /////////////////
+
+Route::get('/client/home', function(){
+    return view('client.home');
+})->name('client.home')->middleware('auth');

@@ -48,8 +48,13 @@ class AuthController extends Controller
 
         // Tentative de connexion avec email et mot de passe
         if (Auth::attempt($request->only('email', 'password'))) {
-            // Si succès → redirection vers dashboard
-            return redirect()->route('dashboard');
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('dashboard');
+            } else {
+                // Redirige les clients vers une page d'accueil ou une page spécifique client
+                return redirect()->route('client.home');
+            }
         }
 
         // Si échec → retour avec message d'erreur
@@ -74,7 +79,8 @@ class AuthController extends Controller
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
-            'password' => Hash::make($request->password) // Hachage du mot de passe
+            'password' => Hash::make($request->password), // Hachage du mot de passe
+            'role'     => 'client', // Par défaut client
         ]);
 
         // Connexion automatique après inscription

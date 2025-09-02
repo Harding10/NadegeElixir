@@ -1,68 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <base target="_self">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des Produits - E-Shop Admin</title>
-    <meta name="description" content="Gestion des produits pour site e-commerce">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            100: "#f3e8ff",
-                            500: "#8b5cf6",
-                            600: "#7c3aed",
-                            700: "#6d28d9"
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-gray-50 min-h-screen">
-    <div class="flex">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-md h-screen sticky top-0">
-            <div class="p-4 flex items-center justify-center border-b border-gray-200">
-                <h1 class="text-2xl font-bold text-primary-700">E-Shop Admin</h1>
-            </div>
-            <nav class="mt-6">
-                <div class="px-4 py-3 text-gray-600 font-medium">Menu Principal</div>
-                <a href="#" class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700">
-                    <i class="fas fa-tachometer-alt mr-3"></i> Tableau de bord
-                </a>
-                <a href="#" class="block px-6 py-3 text-primary-700 bg-primary-100 border-r-4 border-primary-500">
-                    <i class="fas fa-shopping-bag mr-3"></i> Produits
-                </a>
-                <a href="#" class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700">
-                    <i class="fas fa-users mr-3"></i> Clients
-                </a>
-                <a href="#" class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700">
-                    <i class="fas fa-receipt mr-3"></i> Commandes
-                </a>
-                <a href="#" class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700">
-                    <i class="fas fa-chart-line mr-3"></i> Statistiques
-                </a>
-                <a href="#" class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700">
-                    <i class="fas fa-cog mr-3"></i> Paramètres
-                </a>
-            </nav>
-        </aside>
 
-        <!-- Main Content -->
+@extends('base_sidebar')
+
+@section('title', 'produits')
+
+@section('content')
+
+
+
+
+<!-- Main Content -->
         <main class="flex-1 p-8">
             <header class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-bold text-gray-800">Gestion des Produits</h2>
+                <h2 class="text-2xl font-bold text-primary-700">Gestion des Produits</h2>
                 <div class="flex items-center space-x-4">
                     <div class="relative">
                         <input type="text" placeholder="Rechercher un produit..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
-                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                        <i class="fas fa-search absolute left-3 top-3 text-primary-400"></i>
                     </div>
                     <div class="flex items-center space-x-2">
                         <div class="relative">
@@ -77,14 +30,14 @@
             <!-- Actions Bar -->
             <div class="flex justify-between items-center mb-6">
                 <div class="flex space-x-2">
-                    <button class="px-4 py-2 bg-white border rounded-lg text-gray-700 hover:bg-gray-50 flex items-center">
+                    <button class="px-4 py-2 bg-white border border-primary-200 rounded-lg text-primary-700 hover:bg-primary-50 hover:border-primary-300 transition-colors duration-200 flex items-center">
                         <i class="fas fa-filter mr-2"></i> Filtrer
                     </button>
-                    <button class="px-4 py-2 bg-white border rounded-lg text-gray-700 hover:bg-gray-50 flex items-center">
+                    <button class="px-4 py-2 bg-white border border-primary-200 rounded-lg text-primary-700 hover:bg-primary-50 hover:border-primary-300 transition-colors duration-200 flex items-center">
                         <i class="fas fa-sort mr-2"></i> Trier
                     </button>
                 </div>
-                <button id="addProductBtn" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center">
+                <button id="addProductBtn" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center transition-colors duration-200 bg-gradient-to-r from-purple-500 to-indigo-500">
                     <i class="fas fa-plus mr-2"></i> Ajouter un produit
                 </button>
             </div>
@@ -187,15 +140,15 @@
             <!-- Pagination -->
             <div class="flex justify-center mt-8">
                 <nav class="flex items-center space-x-2">
-                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-50">
+                    <a href="#" class="px-3 py-1 rounded border border-primary-200 text-primary-600 hover:bg-primary-50 transition-colors duration-200">
                         <i class="fas fa-chevron-left"></i>
                     </a>
                     <a href="#" class="px-3 py-1 rounded border bg-primary-600 text-white">1</a>
-                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-50">2</a>
-                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-50">3</a>
-                    <span class="px-2 py-1 text-gray-500">...</span>
-                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-50">10</a>
-                    <a href="#" class="px-3 py-1 rounded border text-gray-600 hover:bg-gray-50">
+                    <a href="#" class="px-3 py-1 rounded border border-primary-200 text-primary-600 hover:bg-primary-50 transition-colors duration-200">2</a>
+                    <a href="#" class="px-3 py-1 rounded border border-primary-200 text-primary-600 hover:bg-primary-50 transition-colors duration-200">3</a>
+                    <span class="px-2 py-1 text-primary-400">...</span>
+                    <a href="#" class="px-3 py-1 rounded border border-primary-200 text-primary-600 hover:bg-primary-50 transition-colors duration-200">10</a>
+                    <a href="#" class="px-3 py-1 rounded border border-primary-200 text-primary-600 hover:bg-primary-50 transition-colors duration-200">
                         <i class="fas fa-chevron-right"></i>
                     </a>
                 </nav>
@@ -270,45 +223,14 @@
                 </div>
             </form>
         </div>
-    </div>
+  @endsection
 
-    <script>
-        // Gestion de la modale d'ajout de produit
-        const addProductBtn = document.getElementById('addProductBtn');
-        const addProductModal = document.getElementById('addProductModal');
-        const cancelBtn = document.getElementById('cancelBtn');
-        const productForm = document.getElementById('productForm');
 
-        addProductBtn.addEventListener('click', () => {
-            addProductModal.classList.remove('hidden');
-        });
 
-        cancelBtn.addEventListener('click', () => {
-            addProductModal.classList.add('hidden');
-        });
 
-        productForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Ici vous ajouteriez la logique pour envoyer les données du formulaire
-            alert('Produit ajouté avec succès!');
-            addProductModal.classList.add('hidden');
-            productForm.reset();
-        });
 
-        // Fermer la modale en cliquant à l'extérieur
-        addProductModal.addEventListener('click', (e) => {
-            if (e.target === addProductModal) {
-                addProductModal.classList.add('hidden');
-            }
-        });
 
-        // Navigation handling
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log(`Navigation vers: ${link.getAttribute('href')}`);
-            });
-        });
-    </script>
-</body>
-</html>
+
+
+
+
