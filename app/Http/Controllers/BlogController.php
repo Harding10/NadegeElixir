@@ -17,7 +17,7 @@ class BlogController extends Controller
     public function index(): View
     {
         $articles = Article::with('category', 'author')->latest()->paginate(10);
-        return view('blog.index', compact('articles'));
+        return view('client.boutique', compact('articles'));
     }
 
     /**
@@ -26,7 +26,7 @@ class BlogController extends Controller
     public function create(): View
     {
         $categories = Category::all();
-        return view('blog.create', compact('categories'));
+        return view('produit.dashboard', compact('categories'));
     }
 
     /**

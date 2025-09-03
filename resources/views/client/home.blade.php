@@ -66,7 +66,7 @@
 
       <nav class="hidden md:flex space-x-8">
         <a href="#" class="text-primary font-semibold">Accueil</a>
-        <a href="boutique.html" class="text-gray-800 dark:text-white hover:text-primary transition">Boutique</a>
+        <a href="{{ route('client.boutique') }}" class="text-gray-800 dark:text-white hover:text-primary transition">Boutique</a>
         <a href="Apropos.html" class="text-gray-800 dark:text-white hover:text-primary transition">À propos</a>
         <a href="blog.html" class="text-gray-800 dark:text-white hover:text-primary transition">Blog</a>
         <a href="contact.html" class="text-gray-800 dark:text-white hover:text-primary transition">Contact</a>
@@ -102,17 +102,6 @@
         la collection</a>
     </div>
   </section>
-
-
-
-
-
-
-
-
-
-
-
 
 
   <!-- Popular Perfumes Section -->

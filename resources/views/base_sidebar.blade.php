@@ -79,43 +79,7 @@
                 }
             }
         });
-
-        // Gestion de la modale d'ajout de produit
-        const addProductBtn = document.getElementById('addProductBtn');
-        const addProductModal = document.getElementById('addProductModal');
-        const cancelBtn = document.getElementById('cancelBtn');
-        const productForm = document.getElementById('productForm');
-
-        if (addProductBtn && addProductModal) {
-            addProductBtn.addEventListener('click', () => {
-                addProductModal.classList.remove('hidden');
-            });
-        }
-
-        if (cancelBtn && addProductModal) {
-            cancelBtn.addEventListener('click', () => {
-                addProductModal.classList.add('hidden');
-            });
-        }
-
-        if (productForm && addProductModal) {
-            productForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Ici vous ajouteriez la logique pour envoyer les données du formulaire
-                alert('Produit ajouté avec succès!');
-                addProductModal.classList.add('hidden');
-                productForm.reset();
-            });
-        }
-
-        // Fermer la modale en cliquant à l'extérieur
-        if (addProductModal) {
-            addProductModal.addEventListener('click', (e) => {
-                if (e.target === addProductModal) {
-                    addProductModal.classList.add('hidden');
-                }
-            });
-        }
     </script>
+    <script src="{{ asset('js/product.js') }}"></script>
 </body>
 </html>

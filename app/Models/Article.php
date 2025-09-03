@@ -37,7 +37,7 @@ class Article extends Model
      * $fillable : liste des colonnes qui peuvent être "remplies en masse" (Mass Assignment)
      * Exemple : Article::create([...]) ne fonctionnera que pour ces champs.
      */
-    protected $fillable = ['title', 'description', 'category_id', 'author_id', 'image'];
+    protected $fillable = ['title', 'description', 'category_id', 'author_id', 'image', 'price'];
 
     /**
      * $guarded : liste des colonnes protégées (non modifiables via Mass Assignment).
